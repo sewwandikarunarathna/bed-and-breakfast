@@ -3,6 +3,7 @@
 A fast, SEO-optimized **static website** for a small hotel / guest house located in **Riverston, Matale, Sri Lanka**.  
 This project is designed to provide a simple, elegant online presence with excellent performance and search engine visibility.
 
+![alt text](images/ss-website-activity-section.png.png)
 ---
 
 ## 🌍 Live Website
