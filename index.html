@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riverston Bed and Breakfast | Peaceful Stay in Matale</title>
+  <meta name="description" content="Riverston Bed and Breakfast offers a calm and comfortable stay in Matale near Riverston. Ideal for nature lovers visiting Knuckles and Riverston viewpoints." />
+  <meta name="keywords" content="riverston bed and breakfast, bed and breakfast in riverston, riverston accommodation, matale guest house, knuckles stay" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --primary: #2d5f3f;
+      --primary-light: #4a8a64;
+      --primary-dark: #1a3a28;
+      --accent: #d4a574;
+      --accent-light: #e8c9a1;
+      --bg-light: #faf9f7;
+      --bg-cream: #f5f1eb;
+      --text-dark: #2c2c2c;
+      --text-medium: #4a4a4a;
+      --text-light: #ffffff;
+      --shadow: rgba(45, 95, 63, 0.1);
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: var(--bg-light);
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(45, 95, 63, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 20px var(--shadow);
+      animation: slideDown 0.6s ease-out;
+    }
+    
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    nav a {
+      color: var(--text-light);
+      margin: 0 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      letter-spacing: 0.3px;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::after { width: 100%; }
+    nav a:hover { color: var(--accent-light); }
+    
+    /* Hero Section */
+    header {
+      background: linear-gradient(rgba(29, 53, 39, 0.4), rgba(29, 53, 39, 0.5)), 
+                  url('images/min-world-end.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--text-light);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.3) 100%);
+    }
+    
+    header > div {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+      letter-spacing: 1px;
+    }
+    
+    header p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.4);
+      margin-bottom: 2rem;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--text-dark);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+      animation: fadeInUp 1.2s ease-out 0.3s backwards;
+    }
+    
+    .cta-button:hover {
+      background: var(--accent-light);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(212, 165, 116, 0.5);
+    }
+    
+    /* Section Styles */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    
+    section:nth-child(even) { background: var(--bg-cream); }
+    
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+      text-align: center;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-medium);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+    
+    /* Grid Layouts */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    
+    .card:hover::before { transform: scaleX(1); }
+    
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 30px rgba(45, 95, 63, 0.15);
+    }
+    
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .card p {
+      color: var(--text-medium);
+      line-height: 1.8;
+    }
+    
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Room Cards with Images */
+    .room-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: all 0.4s ease;
+    }
+    
+    .room-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(45, 95, 63, 0.2);
+    }
+    
+    .room-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .room-card:hover .room-image {
+      transform: scale(1.08);
+    }
+    
+    .room-content {
+      padding: 1.8rem;
+    }
+    
+    .room-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+    
+    .room-features {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e5e5;
+    }
+    
+    .feature-tag {
+      background: var(--bg-cream);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    /* Activities Section */
+    .activity-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: all 0.4s ease;
+      position: relative;
+      height: 280px;
+    }
+    
+    .activity-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(29, 53, 39, 0.85), transparent 60%);
+      z-index: 1;
+    }
+    
+    .activity-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .activity-card:hover .activity-image {
+      transform: scale(1.1);
+    }
+    
+    .activity-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(45, 95, 63, 0.25);
+    }
+    
+    .activity-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      color: white;
+      z-index: 2;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    
+    /* About Section */
+    #about {
+      background: var(--primary-dark);
+      color: var(--text-light);
+      padding: 6rem 2rem;
+    }
+    
+    #about h2 { color: var(--accent-light); }
+    #about p {
+      max-width: 800px;
+      margin: 2rem auto;
+      font-size: 1.15rem;
+      line-height: 1.9;
+      text-align: center;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .contact-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 15px var(--shadow);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 25px rgba(45, 95, 63, 0.15);
+    }
+    
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      margin: 0 auto 1rem;
+    }
+    
+    .contact-item strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-item a:hover {
+      color: var(--primary);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    
+    footer a {
+      color: var(--accent-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    footer a:hover { color: white; }
+    
+    /* Scroll Animation */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      header p { font-size: 1.1rem; }
+      h2 { font-size: 2rem; }
+      nav a { margin: 0 0.8rem; font-size: 0.9rem; }
+      section { padding: 3rem 1.5rem; }
+      .grid { gap: 1.5rem; }
+    }
+    
+    /* Reviews Section */
+    .reviews-container {
+      max-width: 1100px;
+      margin: 3rem auto 0;
+    }
+    
+    .review-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px var(--shadow);
+      position: relative;
+      transition: all 0.4s ease;
+      margin-bottom: 2rem;
+    }
+    
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(45, 95, 63, 0.18);
+    }
+    
+    .review-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      font-size: 5rem;
+      color: var(--accent-light);
+      font-family: 'Playfair Display', serif;
+      opacity: 0.3;
+      line-height: 1;
+    }
+    
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .reviewer-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+      flex-shrink: 0;
+      box-shadow: 0 4px 15px rgba(45, 95, 63, 0.2);
+    }
+    
+    .reviewer-info {
+      flex: 1;
+    }
+    
+    .reviewer-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.3rem;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .reviewer-location {
+      color: var(--text-medium);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    .review-rating {
+      display: flex;
+      gap: 0.3rem;
+      margin-top: 0.5rem;
+    }
+    
+    .star {
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    
+    .review-text {
+      color: var(--text-medium);
+      line-height: 1.9;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .review-date {
+      color: var(--text-medium);
+      font-size: 0.9rem;
+      font-style: italic;
+      opacity: 0.7;
+    }
+    
+    .overall-rating {
+      text-align: center;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px var(--shadow);
+      margin-bottom: 3rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .rating-number {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--primary);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+    }
+    
+    .rating-stars {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      margin: 1rem 0;
+      font-size: 1.5rem;
+    }
+    
+    .rating-text {
+      color: var(--text-medium);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#about">About</a>
+    <a href="#activities">Activities</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header id="home">
+    <div>
+      <h1>Riverston Bed & Breakfast</h1>
+      <p>Your Gateway to Misty Mountains & Natural Wonders</p>
+      <a href="#contact" class="cta-button">Book Your Stay</a>
+    </div>
+  </header>
+
+  <section id="rooms">
+    <h2>Comfortable Accommodations</h2>
+    <p class="section-subtitle">Choose from our thoughtfully designed rooms with stunning mountain views</p>
+    
+    <div class="grid">
+      <div class="room-card scroll-reveal">
+        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80" alt="Standard Room" class="room-image">
+        <div class="room-content">
+          <h3>Standard Room</h3>
+          <p>Cozy and comfortable room perfect for couples or solo travelers seeking tranquility amidst nature.</p>
+          <div class="room-features">
+            <span class="feature-tag">Mountain View</span>
+            <span class="feature-tag">Hot Water</span>
+            <span class="feature-tag">WiFi</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="room-card scroll-reveal">
+        <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&q=80" alt="Family Room" class="room-image">
+        <div class="room-content">
+          <h3>Family Room</h3>
+          <p>Spacious accommodation designed for families exploring the Knuckles Mountain Range together.</p>
+          <div class="room-features">
+            <span class="feature-tag">Sleeps 4-5</span>
+            <span class="feature-tag">Extra Space</span>
+            <span class="feature-tag">Balcony</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>Discover Riverston</h2>
+    <p>
+      Nestled in the breathtaking Matale district at the gateway to Riverston, our bed and breakfast 
+      offers an authentic mountain retreat surrounded by cloud-kissed peaks and lush greenery. 
+      Wake up to the symphony of birds, breathe in the crisp mountain air, and let the misty mornings 
+      refresh your soul. We're perfectly positioned for exploring the legendary Riverston viewpoints, 
+      the enchanting Pitawala Pathana grasslands, and the majestic Knuckles Mountain Range - a UNESCO 
+      World Heritage site. Whether you're an adventure seeker or simply yearning for peace, our 
+      welcoming home provides the ideal base for your mountain escape.
+    </p>
+  </section>
+
+  <section id="activities">
+    <h2>Explore the Wonders</h2>
+    <p class="section-subtitle">Unforgettable experiences await just beyond our doorstep</p>
+    
+    <div class="grid">
+      <div class="activity-card scroll-reveal">
+        <img src="images/tea-land.jpg" alt="Riverston View Point" class="activity-image">
+        <h3 class="activity-title">Riverston Peak</h3>
+      </div>
+      
+      <div class="activity-card scroll-reveal">
+        <img src="images/min-world-end.jpg" alt="Mini World's End" class="activity-image">
+        <h3 class="activity-title">Mini World's End</h3>
+      </div>
+      
+      <div class="activity-card scroll-reveal">
+        <img src="images/pitawala-ai.png" alt="Pitawala Pathana" class="activity-image">
+        <h3 class="activity-title">Pitawala Pathana</h3>
+      </div>
+      
+      <div class="activity-card scroll-reveal">
+        <img src="images/water-fall.jpg" alt="Knuckles Hiking" class="activity-image">
+        <h3 class="activity-title">Knuckles Trails</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <h2>What Our Guests Say</h2>
+    <p class="section-subtitle">Real experiences from travelers who've stayed with us</p>
+    
+    <div class="overall-rating scroll-reveal">
+      <div class="rating-number">4.9</div>
+      <div class="rating-stars">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
+      <div class="rating-text">Based on 127 reviews</div>
+    </div>
+    
+    <div class="reviews-container">
+      <div class="review-card scroll-reveal">
+        <div class="review-header">
+          <div class="reviewer-avatar">SM</div>
+          <div class="reviewer-info">
+            <div class="reviewer-name">Sarah Mitchell</div>
+            <div class="reviewer-location">📍 United Kingdom</div>
+            <div class="review-rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+          </div>
+        </div>
+        <p class="review-text">
+          Absolutely magical stay! The view from our room was breathtaking, and waking up to the misty mountains 
+          was like something from a dream. The hosts were incredibly warm and helpful, giving us perfect directions 
+          to Riverston Peak. The breakfast was delicious with fresh local produce. This place is a hidden gem for 
+          anyone wanting to experience the real beauty of Sri Lanka's hill country.
+        </p>
+        <div class="review-date">Visited in November 2024</div>
+      </div>
+      
+      <div class="review-card scroll-reveal">
+        <div class="review-header">
+          <div class="reviewer-avatar">RK</div>
+          <div class="reviewer-info">
+            <div class="reviewer-name">Rajesh Kumar</div>
+            <div class="reviewer-location">📍 India</div>
+            <div class="review-rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+          </div>
+        </div>
+        <p class="review-text">
+          Perfect location for exploring Knuckles Range! We spent three nights here and used it as our base for 
+          hiking. The rooms were spotlessly clean, very comfortable beds, and hot water was always available. 
+          The family room was spacious enough for all four of us. The hosts arranged a guide for our trek to 
+          Pitawala Pathana which was an unforgettable experience. Highly recommend for nature enthusiasts!
+        </p>
+        <div class="review-date">Visited in May 2025</div>
+      </div>
+      
+      <div class="review-card scroll-reveal">
+        <div class="review-header">
+          <div class="reviewer-avatar">EP</div>
+          <div class="reviewer-info">
+            <div class="reviewer-name">Emma Peterson</div>
+            <div class="reviewer-location">📍 Australia</div>
+            <div class="review-rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+          </div>
+        </div>
+        <p class="review-text">
+          What a peaceful retreat! After the busy beaches of the south coast, this was exactly what we needed. 
+          The serenity of the mountains, the cool fresh air, and the genuine hospitality made our stay memorable. 
+          Mini World's End was spectacular, and the hosts gave us insider tips on the best time to visit. 
+          The standard room was cozy and had everything we needed. Will definitely return!
+        </p>
+        <div class="review-date">Visited in June 2024</div>
+      </div>
+      
+      <div class="review-card scroll-reveal">
+        <div class="review-header">
+          <div class="reviewer-avatar">DL</div>
+          <div class="reviewer-info">
+            <div class="reviewer-name">David Liang</div>
+            <div class="reviewer-location">📍 Singapore</div>
+            <div class="review-rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+          </div>
+        </div>
+        <p class="review-text">
+          Exceeded all expectations! The location is perfect for photography enthusiasts like myself. 
+          Sunrise from the nearby viewpoints is stunning. The accommodation is simple but very clean and 
+          comfortable. The hosts were so friendly and their local knowledge made all the difference. 
+          They recommended trails we wouldn't have found otherwise. Great value for money and an authentic 
+          mountain experience.
+        </p>
+        <div class="review-date">Visited in September 2024</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <p class="section-subtitle">We're here to help plan your perfect mountain getaway</p>
+    
+    <div class="contact-grid">
+      <div class="contact-item scroll-reveal">
+        <div class="contact-icon">📍</div>
+        <strong>Location</strong>
+        <p>Riverston Road, Matale<br>Sri Lanka</p>
+        <a href="https://maps.google.com" target="_blank">View on Map</a>
+      </div>
+      
+      <div class="contact-item scroll-reveal">
+        <div class="contact-icon">📞</div>
+        <strong>Phone</strong>
+        <p>+94 66 123 1234</p>
+        <a href="tel:+94XXXXXXXXX">Call Now</a>
+      </div>
+      
+      <div class="contact-item scroll-reveal">
+        <div class="contact-icon">✉️</div>
+        <strong>Email</strong>
+        <p>riverstonbnb@email.com</p>
+        <a href="mailto:riverstonbnb@email.com">Send Message</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Riverston Bed and Breakfast | Matale, Sri Lanka</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Your peaceful retreat in the mountains</p>
+  </footer>
+
+  <script>
+    // Scroll reveal animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
