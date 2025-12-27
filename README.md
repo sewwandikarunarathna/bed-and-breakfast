@@ -9,7 +9,6 @@ This project is designed to provide a simple, elegant online presence with excel
 ## 🌍 Live Website
 
 🔗 https://riverston-bed-and-breakfast.netlify.app  
-*(Replace with your final Netlify or custom domain URL)*
 
 ---
 
@@ -84,9 +83,7 @@ This site is deployed using **Netlify**.
 **Riverston Bed and Breakfast**  
 📍 Riverston Road, Matale, Sri Lanka  
 📧 Email: riverstonbnb@email.com  
-📞 Phone: +94 XX XXX XXXX  
-
-*(Replace with actual contact details)*
+📞 Phone: +94 66 123 1244  
 
 ---
 
